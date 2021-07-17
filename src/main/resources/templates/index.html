@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="shortcut icon" href="img/banco-ico.png" type="image/x-icon">
+<title th:text=${titulo}></title>
+</head>
+
+<body>
+	<nav th:insert="nav-bar.html :: nav"></nav>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<p class="fs-1">
+					<img src="img/banco-ico.png" title="banco"> <span>Banco</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

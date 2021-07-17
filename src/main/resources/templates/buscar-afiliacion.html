@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="shortcut icon" href="img/banco-ico.png" type="image/x-icon">
+<title th:text=${titulo}></title>
+</head>
+
+<body>
+	<nav th:insert="nav-bar.html :: nav"></nav>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<p class="fs-1">
+					<img src="img/banco-ico.png" title="banco"> <span>Banco</span>
+				</p>
+			</div>
+			<div class="col">
+				<h1 th:text=${titulo}></h1>
+				<form id="busca-afiliacion">
+					<div class="mb-3">
+						<label for="idAfiliacion" class="form-label">No.
+							Afiliación</label> <input type="email" class="form-control"
+							id="idAfiliacion" name="idAfiliacion">
+					</div>
+					<div class="mb-3">
+						<label for="fechaSolicitud" class="form-label">Fecha
+							Solicitud</label> <input type="date" class="form-control"
+							id="fechaSolicitud" name="fechaSolicitud">
+					</div>
+					<div class="mb-3">
+						<label for="fechaAutorizacion" class="form-label">Fecha
+							Autorización</label> <input type="date" class="form-control"
+							id="fechaAutorizacion" name="fechaAutorizacion">
+					</div>
+					<div class="mb-3">
+						<label for="usuario" class="form-label">Usuario</label> <input
+							type="text" class="form-control" id="usuario" name="usuario">
+					</div>
+					<a class="btn btn-primary" th:onclick="'buscarAfiliacion()'"
+						data-bs-toggle="modal" data-bs-target="#detalleAfiliacion">Buscar</a>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:insert="detalle-afiliaciones.html :: div"></div>
+	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

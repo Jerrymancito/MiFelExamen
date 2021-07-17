@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="shortcut icon" href="img/banco-ico.png" type="image/x-icon">
+<title th:text=${titulo}></title>
+</head>
+
+<body>
+	<nav th:insert="nav-bar.html :: nav"></nav>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<p class="fs-1">
+					<img src="img/banco-ico.png" title="banco"> <span>Banco</span>
+				</p>
+			</div>
+			<div class="col">
+				<h1 th:text=${titulo}></h1>
+				<a href="buscar-afiliacion" class="btn btn-primary">Búsqueda
+					Avanzada</a>
+
+				<div class="table-responsive">
+					<table class="table table-resposive table-striped table-hover">
+						<thead>
+							<tr>
+								<th scope="col">No. Afiliación</th>
+								<th scope="col">Fecha Alta</th>
+								<th scope="col">Fecha Modificación</th>
+								<th scope="col">Usuario</th>
+								<th scope="col">Sobre Tasa</th>
+								<th scope="col">Banco</th>
+								<th scope="col">Estatus</th>
+								<th scope="col">Fecha Solicitud</th>
+								<th scope="col">Fecha Autorización</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="afiliacion: ${afiliaciones}" data-bs-toggle="modal"
+								data-bs-target="#detalleAfiliacion"
+								th:onclick="'mostrarDetalle(\'' + ${afiliacion.idAfiliacion} + '\');'">
+								<td th:text="${afiliacion.idAfiliacion}"></td>
+								<td th:text="${afiliacion.fechaAlta}"></td>
+								<td th:text="${afiliacion.fechaAutorizacion}"></td>
+								<td th:text="${afiliacion.fechaModificacion}"></td>
+								<td th:text="${afiliacion.fechaSolicitud}"></td>
+								<td th:text="${afiliacion.usuario}"></td>
+								<td th:text="${afiliacion.idSobreTasa}"></td>
+								<td th:text="${afiliacion.idBanco}"></td>
+								<td th:text="${afiliacion.idEstatus}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div th:insert="detalle-afiliaciones.html :: div"></div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
